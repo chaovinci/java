@@ -126,6 +126,12 @@ public class Interval1D {
         return true;
     }
 
+    public boolean contains(Interval1D that) {
+        if (this.min > that.min) return false;
+        if (this.max < that.max) return false;
+        return true;
+    }
+
     /**
      * Returns true if this interval contains the specified value.
      *
