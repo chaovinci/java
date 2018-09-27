@@ -52,8 +52,9 @@ public class E1
 
 
 ### 1.2.2 答案：
-这一题和上一题的主要现实差不多，就是不用画出来。  
-Interval1D就像是数轴上的一段线段，有个地方需要注意：
+这一题和上一题的主要现实差不多，就是不用画出来。   
+书中的API表中的相交的方法叫 intersect，官网的实现中叫 intersects，请读一遍 原文件IntervalD.java, Interval2D有同样问题，大家自己注意。  
+Interval1D就像是数轴上的一段线段，有个地方需要注意：  
 min 必须小于小于或等于 max，所以在随机创建的时候需要做大小判断。
 ```java
 for (int i = 0; i < intervals.length; i++) {
