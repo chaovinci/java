@@ -192,3 +192,105 @@ Solution of 1.2.3
 ![E3_PIC.png](E3_PIC.png)
 
 ### 1.2.4 答案：
+world   
+string2指向了"hello"这个地址，string1指向了“world”的地址。  
+```java
+public class E4 {
+  public static void main(String[] args) {
+    String string1 = "hello";
+    String string2 = string1;
+    string1 = "world";
+    System.out.println(string1);
+    System.out.println(string2);
+  }
+}
+/*
+Solution of 1.2.4
+>>>java E4
+world
+hello
+*/
+```
+
+### 1.2.5 答案：
+Hello World
+
+```java
+public class E5 {
+  public static void main(String[] args) {
+    String s = "Hello World";
+    s.toUpperCase();
+    s.substring(6, 11);
+    System.out.println(s);
+    System.out.println(s.toUpperCase());
+    System.out.println(s.substring(6, 11));
+  }
+}
+/*
+Solution of 1.2.5
+>>>java E5
+Hello World
+HELLO WORLD
+World
+*/
+
+```
+
+### 1.2.6 答案：
+这一题也叫做了“回环变位”问题，大家可以自行搜索。书中的答案，是一个比较巧妙的解法，挺有意思的，不过并不直观。   
+```java
+public class E6 {
+
+  public static boolean isCircularRotation(String a, String b) {
+    return a.length() == b.length() && a.concat(a).indexOf(b) > -1;
+  }
+
+  public static boolean isCircularRotation2(String a, String b) {
+    if (a.length() != b.length())  return false;
+
+    for (int i = 0; i < a.length(); i++) {
+      String left = a.substring(0, i);
+      String right = a.substring(i, a.length());
+      if(right.concat(left).equals(b))
+        return true;
+    }
+    return false;
+  }
+
+  public static void main(String[] args) {
+    String s1 = "abcd";
+    String s2 = "cdab";
+    System.out.println(isCircularRotation(s1, s2));
+  }
+}
+/*
+Solution of 1.2.6
+>>>java E6
+true
+*/
+```
+
+### 1.2.7 答案：
+把String s倒转。 abcdef 变为 fedcba
+
+```java
+public class E7 {
+  public static String mystery(String s) {
+    int N = s.length();
+    if (N <= 1)  return s;
+    String a = s.substring(0, N/2);
+    String b = s.substring(N/2, N);
+    return  mystery(b) + mystery(a);
+  }
+
+  public static void main(String[] args) {
+    String s = "abcdef";
+    System.out.println(mystery(s));
+  }
+}
+/*
+Solution of 1.2.4
+>>>jjava E7
+fedcba
+*/
+```

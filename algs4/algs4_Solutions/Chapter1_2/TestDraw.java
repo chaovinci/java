@@ -6,3 +6,11 @@ StdDraw.setPenColor(StdDraw.RED);
 
 int n = Integer.parseInt(args[0]);
 
+public static void main(String[] args) {
+  Scanner in = new Scanner(System.in);
+  String s = in.nextLine();
+  System.out.println(mystery(s));
+}
+// java className/n
+// String/n
+
