@@ -31,10 +31,6 @@ public class E9 {
 /*
  Solution of 1.2.9
 >>>java E9 tinyW.txt 30
-mid: 7, a[min]: 33 : lo: 0, hi: 14, depth: 0
- mid: 3, a[min]: 16 : lo: 0, hi: 6, depth: 1
-  mid: 5, a[min]: 23 : lo: 4, hi: 6, depth: 2
-   mid: 6, a[min]: 29 : lo: 6, hi: 6, depth: 3
-    mid: 7, a[min]: 33 : lo: 7, hi: 6, depth: 4
 30
+4 search
 */
