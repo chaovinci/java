@@ -167,3 +167,44 @@ it (1 left on stack)
 it
 */
 ```
+
+### 1.3.9 1.3.10 1.3.11
+看到连着的3题，有点怕怕，如果一个一个写还挺麻烦的，不如我们来梳理一下，然后一并解决了。   
+1.3.5 中是判断括号是否完整   
+1.3.9 是补全括号  
+1.3.10 11 是中序 和 后 序之间的转换   
+我们不如把前序也加上。 整体上思路是：  
+先判断这个表达式是前、后 还是中，然后判断括号是不是全的，然后转换。  
+每个转化程序都只处理括号是完整的情况。  
+
+我们先造几个方法：  
+1. repairParentheses(Stack<String> expression) 接受一个表达式，并修复它的前括号"("。
+2. InfixToPrefix(String expression) 中序转前序，并输出计算结果  
+3. InfixToPostfix(String expression) 中序转后序，并输出计算结果   
+4. PostfixToInfix(String expression)  后序转中序，并输出计算结果   
+5. PostfixToPrefix 、 PrefixToInfix 和 PrefixToPostfix 就不在这里折腾，方法都一样，大家可以自己去玩一玩。  
+
+先看1. Stack<String> repairParentheses(Stack<String> expression) 关键是如何判断缺了前括号，然后在什么地方补上。   
+有两个地方要注意：  
+1）"("一定出现在数字的左边   
+2）而且之后当前面有一个运算符没有匹配 "("的时候才加上   
+
+从标准输入,互相传递麻烦，所以我先在main方法中把输入放到一个栈，用来存放表达式。  
+```java
+Stack<String> origin = new Stack<String>();
+while (!StdIn.isEmpty())
+    origin.push(StdIn.readString());
+```
+具体实现大家看文件E9_10_11.java  
+如何添加"("的关键在这一段，大家思考下这里的处理逻辑：
+```java
+while (!temp.isEmpty() && temp.peek().equals("op")) {
+    fixed.push("(");
+    temp.pop(); temp.pop();
+```
+
+string 和Double 之间的转换：  
+Double.parseDouble(string);
+Double.toString(double);
+
+1 + 2 ) * 3 - 4 ) * 5 - 6 ) ) )
